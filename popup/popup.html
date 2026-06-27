@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title>JSON Viewer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="pp-header">
+      <img class="pp-logo" src="../icons/icon128.png" alt="" aria-hidden="true" />
+      <div class="pp-title">
+        <strong>JSON Viewer</strong>
+        <small><span data-i18n="popupVersion">Version</span> <span id="pp-version">–</span></small>
+      </div>
+    </header>
+    <p class="pp-lead">Visit a URL that serves <code>application/json</code> and the page will be formatted automatically.</p>
+    <div class="pp-actions">
+      <button type="button" id="pp-options" class="pp-btn pp-btn--primary" data-i18n="popupOpenOptions">Open options</button>
+      <button type="button" id="pp-shortcuts" class="pp-btn" data-i18n="popupShortcuts">Shortcuts</button>
+    </div>
+    <ul id="pp-tips" class="pp-tips" hidden>
+      <li><kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> - <span data-i18n="popupTipSearch">search</span></li>
+      <li><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> - <span data-i18n="popupTipNavigate">navigate the tree</span></li>
+    </ul>
+    <footer class="pp-footer">
+      <a class="pp-author" href="https://github.com/fabriziobagala/json-viewer" target="_blank" rel="noopener noreferrer"><span data-i18n="popupAuthor">by</span> Fabrizio Bagalà</a>
+    </footer>
+    <script src="../i18n.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

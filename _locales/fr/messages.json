@@ -1,0 +1,77 @@
+{
+  "extName": { "message": "JSON Viewer" },
+  "extDescription": { "message": "Met en forme toute page JSON en une arborescence navigable, avec recherche, coloration syntaxique, thèmes et vue brute." },
+  "actionTitle": { "message": "JSON Viewer - options" },
+
+  "popupLead": {
+    "message": "Visitez une URL qui sert $contentType$ et la page sera formatée automatiquement.",
+    "placeholders": { "contentType": { "content": "$1" } }
+  },
+  "popupOpenOptions": { "message": "Ouvrir les options" },
+  "popupShortcuts": { "message": "Raccourcis" },
+  "popupVersion": { "message": "Version" },
+  "popupTipSearch": { "message": "rechercher" },
+  "popupTipNavigate": { "message": "naviguer dans l'arborescence" },
+  "popupAuthor": { "message": "par" },
+
+  "optionsTitle": { "message": "JSON Viewer - Options" },
+  "optionsSubtitle": { "message": "Préférences d'affichage" },
+  "optionsThemeHeading": { "message": "Thème" },
+  "optionsThemeAuto": { "message": "Automatique" },
+  "optionsThemeLight": { "message": "Clair" },
+  "optionsThemeDark": { "message": "Sombre" },
+  "optionsViewHeading": { "message": "Vue par défaut" },
+  "optionsViewFormatted": { "message": "Formatée" },
+  "optionsViewRaw": { "message": "Brute" },
+  "optionsDepthHeading": { "message": "Profondeur d'expansion initiale" },
+  "optionsDepthHint": { "message": "Nombre de niveaux ouverts automatiquement à l'ouverture du JSON." },
+  "optionsFontHeading": { "message": "Taille de police" },
+  "optionsFontHint": { "message": "Taille du texte de l'arborescence et de la vue brute." },
+  "optionsIndentHeading": { "message": "Indentation de la vue brute" },
+  "optionsIndentServer": { "message": "Du serveur" },
+  "optionsIndent2": { "message": "2 espaces" },
+  "optionsIndent4": { "message": "4 espaces" },
+  "optionsIndentTab": { "message": "Tabulation" },
+  "optionsIndentHint": { "message": "« Du serveur » affiche les octets d'origine ; les autres options reformatent le JSON." },
+  "optionsDisplayHeading": { "message": "Affichage" },
+  "optionsWrap": { "message": "Retour à la ligne automatique" },
+  "optionsWrapHint": { "message": "Si désactivé, les longues lignes défilent horizontalement au lieu de revenir à la ligne." },
+  "optionsSort": { "message": "Trier les clés par ordre alphabétique" },
+  "optionsSortHint": { "message": "Trie les clés des objets dans l'arborescence (n'affecte pas la vue brute)." },
+  "optionsMaxSizeHeading": { "message": "Seuil maximal de charge utile" },
+  "optionsMaxSizeHint": { "message": "Les JSON plus grands que ce seuil ne sont pas formatés (évite de bloquer l'onglet)." },
+  "optionsReset": { "message": "Réinitialiser" },
+  "optionsStatusSaved": { "message": "Préférences enregistrées" },
+  "optionsStatusReset": { "message": "Préférences réinitialisées" },
+  "optionsStatusError": {
+    "message": "Erreur : $error$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "viewerTabFormatted": { "message": "Formatée" },
+  "viewerTabRaw": { "message": "Brute" },
+  "viewerSearchPlaceholder": { "message": "Rechercher des clés ou des valeurs…" },
+  "viewerSearchLabel": { "message": "Rechercher dans le JSON" },
+  "viewerExpandAll": { "message": "Tout développer" },
+  "viewerCollapseAll": { "message": "Tout réduire" },
+  "viewerCopyJson": { "message": "Copier le JSON" },
+  "viewerToggleLabel": { "message": "Développer ou réduire" },
+  "viewerItemsOne": {
+    "message": "$count$ élément",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerItemsMany": {
+    "message": "$count$ éléments",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerCopied": { "message": "Copié dans le presse-papiers" },
+  "viewerCopyFailed": { "message": "Échec de la copie" },
+  "viewerResultsOne": {
+    "message": "$count$ résultat",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerResultsMany": {
+    "message": "$count$ résultats",
+    "placeholders": { "count": { "content": "$1" } }
+  }
+}

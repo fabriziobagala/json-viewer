@@ -1,0 +1,258 @@
+:root {
+  color-scheme: light dark;
+  --op-bg: light-dark(#f8f9fa, #1f1f1f);
+  --op-surface: light-dark(#ffffff, #282a2d);
+  --op-border: light-dark(#e8eaed, #3c4043);
+  --op-text: light-dark(#202124, #e8eaed);
+  --op-muted: light-dark(#5f6368, #9aa0a6);
+  --op-accent: light-dark(#1a73e8, #8ab4f8);
+  --op-accent-weak: light-dark(rgba(26, 115, 232, 0.1), rgba(138, 180, 248, 0.16));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--op-bg);
+  color: var(--op-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.op-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.op-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.op-logo {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.op-sub {
+  margin: 2px 0 0;
+  color: var(--op-muted);
+  font-size: 13px;
+}
+
+.op-card {
+  background: var(--op-surface);
+  border: 1px solid var(--op-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  transition: box-shadow 120ms ease;
+}
+
+.op-card:hover {
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08);
+}
+
+.op-card h2 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--op-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.op-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.op-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--op-border);
+  border-radius: 999px;
+  cursor: pointer;
+  background: transparent;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+/* Native radio tinted with accent-color instead of a reimplemented dot; the
+   pill keeps its own selected styling via :has() below. */
+.op-radio input {
+  accent-color: var(--op-accent);
+  margin: 0;
+  cursor: pointer;
+}
+
+.op-radio:has(input:checked) {
+  border-color: var(--op-accent);
+  background: var(--op-accent-weak);
+  color: var(--op-accent);
+}
+
+.op-slider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.op-slider input[type="range"] {
+  flex: 1;
+  accent-color: var(--op-accent);
+}
+
+.op-slider output {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  color: var(--op-accent);
+  min-width: 2ch;
+  text-align: center;
+}
+
+.op-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.op-switch input {
+  appearance: none;
+  position: relative;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--op-border);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.op-switch input::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--op-surface);
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3);
+  transition: transform 120ms ease;
+}
+
+.op-switch input:checked {
+  background: var(--op-accent);
+}
+
+.op-switch input:checked::before {
+  transform: translateX(16px);
+}
+
+.op-switch input:focus-visible {
+  outline: 2px solid var(--op-accent);
+  outline-offset: 2px;
+}
+
+.op-card .op-switch + .op-hint {
+  margin-bottom: 16px;
+}
+
+.op-card .op-switch + .op-hint:last-child {
+  margin-bottom: 0;
+}
+
+.op-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.op-number input {
+  appearance: textfield;
+  width: 88px;
+  border: 1px solid var(--op-border);
+  background: var(--op-bg);
+  color: var(--op-text);
+  font: inherit;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.op-number input:focus-visible {
+  outline: none;
+  border-color: var(--op-accent);
+  box-shadow: 0 0 0 3px var(--op-accent-weak);
+}
+
+.op-unit {
+  color: var(--op-muted);
+  font-size: 13px;
+}
+
+.op-hint {
+  margin: 8px 0 0;
+  color: var(--op-muted);
+  font-size: 12.5px;
+}
+
+.op-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+#op-status {
+  color: var(--op-muted);
+  font-size: 13px;
+}
+
+.op-btn {
+  appearance: none;
+  border: 1px solid var(--op-border);
+  background: var(--op-surface);
+  color: var(--op-text);
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.op-btn:hover {
+  border-color: var(--op-accent);
+  color: var(--op-accent);
+}
+
+.op-btn:focus-visible {
+  outline: 2px solid var(--op-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

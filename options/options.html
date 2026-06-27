@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title data-i18n="optionsTitle">JSON Viewer - Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="op-wrap">
+      <header class="op-header">
+        <img class="op-logo" src="../icons/icon128.png" alt="" aria-hidden="true" />
+        <div>
+          <h1>JSON Viewer</h1>
+          <p class="op-sub" data-i18n="optionsSubtitle">Display preferences</p>
+        </div>
+      </header>
+
+      <section class="op-card" aria-labelledby="op-theme-h">
+        <h2 id="op-theme-h" data-i18n="optionsThemeHeading">Theme</h2>
+        <div class="op-options" role="radiogroup" aria-labelledby="op-theme-h">
+          <label class="op-radio"><input type="radio" name="theme" value="auto" /><span data-i18n="optionsThemeAuto">Automatic</span></label>
+          <label class="op-radio"><input type="radio" name="theme" value="light" /><span data-i18n="optionsThemeLight">Light</span></label>
+          <label class="op-radio"><input type="radio" name="theme" value="dark" /><span data-i18n="optionsThemeDark">Dark</span></label>
+        </div>
+      </section>
+
+      <section class="op-card" aria-labelledby="op-view-h">
+        <h2 id="op-view-h" data-i18n="optionsViewHeading">Default view</h2>
+        <div class="op-options" role="radiogroup" aria-labelledby="op-view-h">
+          <label class="op-radio"><input type="radio" name="defaultView" value="formatted" /><span data-i18n="optionsViewFormatted">Formatted</span></label>
+          <label class="op-radio"><input type="radio" name="defaultView" value="raw" /><span data-i18n="optionsViewRaw">Raw</span></label>
+        </div>
+      </section>
+
+      <section class="op-card" aria-labelledby="op-depth-h">
+        <h2 id="op-depth-h" data-i18n="optionsDepthHeading">Initial expansion depth</h2>
+        <div class="op-slider">
+          <input type="range" id="op-depth" min="0" max="10" step="1" aria-labelledby="op-depth-h" />
+          <output for="op-depth" id="op-depth-out">2</output>
+        </div>
+        <p class="op-hint" data-i18n="optionsDepthHint">Number of levels opened automatically when the JSON loads.</p>
+      </section>
+
+      <section class="op-card" aria-labelledby="op-font-h">
+        <h2 id="op-font-h" data-i18n="optionsFontHeading">Font size</h2>
+        <div class="op-slider">
+          <input type="range" id="op-font" min="10" max="24" step="1" aria-labelledby="op-font-h" />
+          <output for="op-font" id="op-font-out">14 px</output>
+        </div>
+        <p class="op-hint" data-i18n="optionsFontHint">Text size of the tree and the raw view.</p>
+      </section>
+
+      <section class="op-card" aria-labelledby="op-indent-h">
+        <h2 id="op-indent-h" data-i18n="optionsIndentHeading">Raw view indentation</h2>
+        <div class="op-options" role="radiogroup" aria-labelledby="op-indent-h">
+          <label class="op-radio"><input type="radio" name="rawIndent" value="original" /><span data-i18n="optionsIndentServer">From server</span></label>
+          <label class="op-radio"><input type="radio" name="rawIndent" value="2" /><span data-i18n="optionsIndent2">2 spaces</span></label>
+          <label class="op-radio"><input type="radio" name="rawIndent" value="4" /><span data-i18n="optionsIndent4">4 spaces</span></label>
+          <label class="op-radio"><input type="radio" name="rawIndent" value="tab" /><span data-i18n="optionsIndentTab">Tab</span></label>
+        </div>
+        <p class="op-hint" data-i18n="optionsIndentHint">“From server” shows the original bytes; the other options reformat the JSON.</p>
+      </section>
+
+      <section class="op-card" aria-labelledby="op-display-h">
+        <h2 id="op-display-h" data-i18n="optionsDisplayHeading">Display</h2>
+        <label class="op-switch">
+          <input type="checkbox" id="op-wrap" role="switch" aria-checked="false" />
+          <span data-i18n="optionsWrap">Word wrap</span>
+        </label>
+        <p class="op-hint" data-i18n="optionsWrapHint">When off, long lines scroll horizontally instead of wrapping.</p>
+        <label class="op-switch">
+          <input type="checkbox" id="op-sort" role="switch" aria-checked="false" />
+          <span data-i18n="optionsSort">Sort keys alphabetically</span>
+        </label>
+        <p class="op-hint" data-i18n="optionsSortHint">Sorts object keys in the tree (does not affect the raw view).</p>
+      </section>
+
+      <section class="op-card" aria-labelledby="op-maxsize-h">
+        <h2 id="op-maxsize-h" data-i18n="optionsMaxSizeHeading">Maximum payload threshold</h2>
+        <div class="op-number">
+          <input type="number" id="op-maxsize" min="1" max="100" step="1" aria-labelledby="op-maxsize-h" />
+          <span class="op-unit">MB</span>
+        </div>
+        <p class="op-hint" data-i18n="optionsMaxSizeHint">JSON larger than this threshold is not formatted (avoids freezing the tab).</p>
+      </section>
+
+      <footer class="op-footer">
+        <output id="op-status" aria-live="polite"></output>
+        <button type="button" id="op-reset" class="op-btn" data-i18n="optionsReset">Reset</button>
+      </footer>
+    </main>
+    <script src="../i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

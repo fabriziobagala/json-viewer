@@ -1,0 +1,77 @@
+{
+  "extName": { "message": "JSON Viewer" },
+  "extDescription": { "message": "Formatiert jede JSON-Seite sofort als navigierbaren Baum mit Suche, Syntaxhervorhebung, Themes und Originalansicht." },
+  "actionTitle": { "message": "JSON Viewer - Optionen" },
+
+  "popupLead": {
+    "message": "Besuche eine URL, die $contentType$ ausliefert, und die Seite wird automatisch formatiert.",
+    "placeholders": { "contentType": { "content": "$1" } }
+  },
+  "popupOpenOptions": { "message": "Optionen öffnen" },
+  "popupShortcuts": { "message": "Tastenkürzel" },
+  "popupVersion": { "message": "Version" },
+  "popupTipSearch": { "message": "suchen" },
+  "popupTipNavigate": { "message": "im Baum navigieren" },
+  "popupAuthor": { "message": "von" },
+
+  "optionsTitle": { "message": "JSON Viewer - Optionen" },
+  "optionsSubtitle": { "message": "Anzeigeeinstellungen" },
+  "optionsThemeHeading": { "message": "Theme" },
+  "optionsThemeAuto": { "message": "Automatisch" },
+  "optionsThemeLight": { "message": "Hell" },
+  "optionsThemeDark": { "message": "Dunkel" },
+  "optionsViewHeading": { "message": "Standardansicht" },
+  "optionsViewFormatted": { "message": "Formatiert" },
+  "optionsViewRaw": { "message": "Original" },
+  "optionsDepthHeading": { "message": "Anfängliche Ausklapptiefe" },
+  "optionsDepthHint": { "message": "Anzahl der Ebenen, die beim Öffnen des JSON automatisch geöffnet werden." },
+  "optionsFontHeading": { "message": "Schriftgröße" },
+  "optionsFontHint": { "message": "Textgröße des Baums und der Originalansicht." },
+  "optionsIndentHeading": { "message": "Einrückung der Originalansicht" },
+  "optionsIndentServer": { "message": "Vom Server" },
+  "optionsIndent2": { "message": "2 Leerzeichen" },
+  "optionsIndent4": { "message": "4 Leerzeichen" },
+  "optionsIndentTab": { "message": "Tabulator" },
+  "optionsIndentHint": { "message": "„Vom Server“ zeigt die ursprünglichen Bytes; die anderen Optionen formatieren das JSON neu." },
+  "optionsDisplayHeading": { "message": "Anzeige" },
+  "optionsWrap": { "message": "Automatischer Zeilenumbruch" },
+  "optionsWrapHint": { "message": "Wenn deaktiviert, scrollen lange Zeilen horizontal, statt umzubrechen." },
+  "optionsSort": { "message": "Schlüssel alphabetisch sortieren" },
+  "optionsSortHint": { "message": "Sortiert die Objektschlüssel im Baum (ändert die Originalansicht nicht)." },
+  "optionsMaxSizeHeading": { "message": "Maximale Payload-Schwelle" },
+  "optionsMaxSizeHint": { "message": "JSON, das größer als diese Schwelle ist, wird nicht formatiert (verhindert das Einfrieren des Tabs)." },
+  "optionsReset": { "message": "Zurücksetzen" },
+  "optionsStatusSaved": { "message": "Einstellungen gespeichert" },
+  "optionsStatusReset": { "message": "Einstellungen zurückgesetzt" },
+  "optionsStatusError": {
+    "message": "Fehler: $error$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "viewerTabFormatted": { "message": "Formatiert" },
+  "viewerTabRaw": { "message": "Original" },
+  "viewerSearchPlaceholder": { "message": "Schlüssel oder Werte suchen…" },
+  "viewerSearchLabel": { "message": "Im JSON suchen" },
+  "viewerExpandAll": { "message": "Alle ausklappen" },
+  "viewerCollapseAll": { "message": "Alle einklappen" },
+  "viewerCopyJson": { "message": "JSON kopieren" },
+  "viewerToggleLabel": { "message": "Aus- oder einklappen" },
+  "viewerItemsOne": {
+    "message": "$count$ Element",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerItemsMany": {
+    "message": "$count$ Elemente",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerCopied": { "message": "In die Zwischenablage kopiert" },
+  "viewerCopyFailed": { "message": "Kopieren fehlgeschlagen" },
+  "viewerResultsOne": {
+    "message": "$count$ Ergebnis",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerResultsMany": {
+    "message": "$count$ Ergebnisse",
+    "placeholders": { "count": { "content": "$1" } }
+  }
+}

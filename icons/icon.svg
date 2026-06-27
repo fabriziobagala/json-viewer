@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Source artwork for the JSON Viewer icons. Blue brace glyph { } on a
+       light-grey rounded square tile. Derived from the braces-and-tree design
+       in backup/icon.svg with the inner node tree removed. Rasterise with:
+         for N in 16 32 48 128; do
+           rsvg-convert -w $N -h $N icons/icon.svg -o icons/icon$N.png
+         done -->
+  <defs>
+    <linearGradient id="brace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f9bff"/>
+      <stop offset="1" stop-color="#1a73e8"/>
+    </linearGradient>
+  </defs>
+  <!-- light-grey background square -->
+  <rect x="0" y="0" width="128" height="128" rx="24" ry="24" fill="#f1f3f4"/>
+  <!-- brace glyph -->
+  <g font-family="Helvetica, Arial, sans-serif" font-size="104" font-weight="bold"
+     fill="url(#brace)" text-anchor="middle" transform="translate(3 -0.25)">
+    <text x="40" y="92">{</text>
+    <text x="88" y="92">}</text>
+  </g>
+</svg>

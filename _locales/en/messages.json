@@ -1,0 +1,77 @@
+{
+  "extName": { "message": "JSON Viewer" },
+  "extDescription": { "message": "Instantly formats any JSON page into a clean, navigable tree with search, syntax highlighting, themes, and a raw view." },
+  "actionTitle": { "message": "JSON Viewer - options" },
+
+  "popupLead": {
+    "message": "Visit a URL that serves $contentType$ and the page will be formatted automatically.",
+    "placeholders": { "contentType": { "content": "$1" } }
+  },
+  "popupOpenOptions": { "message": "Open options" },
+  "popupShortcuts": { "message": "Shortcuts" },
+  "popupVersion": { "message": "Version" },
+  "popupTipSearch": { "message": "search" },
+  "popupTipNavigate": { "message": "navigate the tree" },
+  "popupAuthor": { "message": "by" },
+
+  "optionsTitle": { "message": "JSON Viewer - Options" },
+  "optionsSubtitle": { "message": "Display preferences" },
+  "optionsThemeHeading": { "message": "Theme" },
+  "optionsThemeAuto": { "message": "Automatic" },
+  "optionsThemeLight": { "message": "Light" },
+  "optionsThemeDark": { "message": "Dark" },
+  "optionsViewHeading": { "message": "Default view" },
+  "optionsViewFormatted": { "message": "Formatted" },
+  "optionsViewRaw": { "message": "Raw" },
+  "optionsDepthHeading": { "message": "Initial expansion depth" },
+  "optionsDepthHint": { "message": "Number of levels opened automatically when the JSON loads." },
+  "optionsFontHeading": { "message": "Font size" },
+  "optionsFontHint": { "message": "Text size of the tree and the raw view." },
+  "optionsIndentHeading": { "message": "Raw view indentation" },
+  "optionsIndentServer": { "message": "From server" },
+  "optionsIndent2": { "message": "2 spaces" },
+  "optionsIndent4": { "message": "4 spaces" },
+  "optionsIndentTab": { "message": "Tab" },
+  "optionsIndentHint": { "message": "“From server” shows the original bytes; the other options reformat the JSON." },
+  "optionsDisplayHeading": { "message": "Display" },
+  "optionsWrap": { "message": "Word wrap" },
+  "optionsWrapHint": { "message": "When off, long lines scroll horizontally instead of wrapping." },
+  "optionsSort": { "message": "Sort keys alphabetically" },
+  "optionsSortHint": { "message": "Sorts object keys in the tree (does not affect the raw view)." },
+  "optionsMaxSizeHeading": { "message": "Maximum payload threshold" },
+  "optionsMaxSizeHint": { "message": "JSON larger than this threshold is not formatted (avoids freezing the tab)." },
+  "optionsReset": { "message": "Reset" },
+  "optionsStatusSaved": { "message": "Preferences saved" },
+  "optionsStatusReset": { "message": "Preferences restored" },
+  "optionsStatusError": {
+    "message": "Error: $error$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "viewerTabFormatted": { "message": "Formatted" },
+  "viewerTabRaw": { "message": "Raw" },
+  "viewerSearchPlaceholder": { "message": "Search keys or values…" },
+  "viewerSearchLabel": { "message": "Search the JSON" },
+  "viewerExpandAll": { "message": "Expand all" },
+  "viewerCollapseAll": { "message": "Collapse all" },
+  "viewerCopyJson": { "message": "Copy JSON" },
+  "viewerToggleLabel": { "message": "Expand or collapse" },
+  "viewerItemsOne": {
+    "message": "$count$ item",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerItemsMany": {
+    "message": "$count$ items",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerCopied": { "message": "Copied to clipboard" },
+  "viewerCopyFailed": { "message": "Copy failed" },
+  "viewerResultsOne": {
+    "message": "$count$ result",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerResultsMany": {
+    "message": "$count$ results",
+    "placeholders": { "count": { "content": "$1" } }
+  }
+}

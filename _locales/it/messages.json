@@ -1,0 +1,77 @@
+{
+  "extName": { "message": "JSON Viewer" },
+  "extDescription": { "message": "Formatta all'istante ogni pagina JSON come albero navigabile, con ricerca, evidenziazione della sintassi, temi e vista originale." },
+  "actionTitle": { "message": "JSON Viewer - opzioni" },
+
+  "popupLead": {
+    "message": "Visita un URL che serve $contentType$ e la pagina verrà formattata automaticamente.",
+    "placeholders": { "contentType": { "content": "$1" } }
+  },
+  "popupOpenOptions": { "message": "Apri opzioni" },
+  "popupShortcuts": { "message": "Scorciatoie" },
+  "popupVersion": { "message": "Versione" },
+  "popupTipSearch": { "message": "cerca" },
+  "popupTipNavigate": { "message": "naviga l'albero" },
+  "popupAuthor": { "message": "di" },
+
+  "optionsTitle": { "message": "JSON Viewer - Opzioni" },
+  "optionsSubtitle": { "message": "Preferenze di visualizzazione" },
+  "optionsThemeHeading": { "message": "Tema" },
+  "optionsThemeAuto": { "message": "Automatico" },
+  "optionsThemeLight": { "message": "Chiaro" },
+  "optionsThemeDark": { "message": "Scuro" },
+  "optionsViewHeading": { "message": "Vista predefinita" },
+  "optionsViewFormatted": { "message": "Formattato" },
+  "optionsViewRaw": { "message": "Originale" },
+  "optionsDepthHeading": { "message": "Profondità di espansione iniziale" },
+  "optionsDepthHint": { "message": "Numero di livelli aperti automaticamente all'apertura del JSON." },
+  "optionsFontHeading": { "message": "Dimensione del carattere" },
+  "optionsFontHint": { "message": "Dimensione del testo dell'albero e della vista originale." },
+  "optionsIndentHeading": { "message": "Indentazione vista originale" },
+  "optionsIndentServer": { "message": "Dal server" },
+  "optionsIndent2": { "message": "2 spazi" },
+  "optionsIndent4": { "message": "4 spazi" },
+  "optionsIndentTab": { "message": "Tab" },
+  "optionsIndentHint": { "message": "«Dal server» mostra i byte originali; le altre opzioni riformattano il JSON." },
+  "optionsDisplayHeading": { "message": "Visualizzazione" },
+  "optionsWrap": { "message": "A capo automatico" },
+  "optionsWrapHint": { "message": "Se disattivato, le righe lunghe scorrono in orizzontale invece di andare a capo." },
+  "optionsSort": { "message": "Ordina le chiavi alfabeticamente" },
+  "optionsSortHint": { "message": "Ordina le chiavi degli oggetti nell'albero (non altera la vista originale)." },
+  "optionsMaxSizeHeading": { "message": "Soglia massima payload" },
+  "optionsMaxSizeHint": { "message": "I JSON più grandi di questa soglia non vengono formattati (evita di bloccare la scheda)." },
+  "optionsReset": { "message": "Ripristina" },
+  "optionsStatusSaved": { "message": "Preferenze salvate" },
+  "optionsStatusReset": { "message": "Preferenze ripristinate" },
+  "optionsStatusError": {
+    "message": "Errore: $error$",
+    "placeholders": { "error": { "content": "$1" } }
+  },
+
+  "viewerTabFormatted": { "message": "Formattato" },
+  "viewerTabRaw": { "message": "Originale" },
+  "viewerSearchPlaceholder": { "message": "Cerca chiavi o valori…" },
+  "viewerSearchLabel": { "message": "Cerca nel JSON" },
+  "viewerExpandAll": { "message": "Espandi tutto" },
+  "viewerCollapseAll": { "message": "Comprimi tutto" },
+  "viewerCopyJson": { "message": "Copia JSON" },
+  "viewerToggleLabel": { "message": "Espandi o comprimi" },
+  "viewerItemsOne": {
+    "message": "$count$ elemento",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerItemsMany": {
+    "message": "$count$ elementi",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerCopied": { "message": "Copiato negli appunti" },
+  "viewerCopyFailed": { "message": "Copia non riuscita" },
+  "viewerResultsOne": {
+    "message": "$count$ risultato",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "viewerResultsMany": {
+    "message": "$count$ risultati",
+    "placeholders": { "count": { "content": "$1" } }
+  }
+}
