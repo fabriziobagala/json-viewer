@@ -72,7 +72,10 @@
    * @param {number} fallback - Value used when `v` is not a number.
    * @returns {number} The clamped integer.
    */
-  const clamp = (v, lo, hi, fallback) => Math.max(lo, Math.min(hi, Number.parseInt(v, 10) || fallback));
+  const clamp = (v, lo, hi, fallback) => {
+    const n = Number.parseInt(v, 10);
+    return Math.max(lo, Math.min(hi, Number.isNaN(n) ? fallback : n));
+  };
 
   let saveTimer;
   /**
