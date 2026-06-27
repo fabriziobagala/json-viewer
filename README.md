@@ -1,4 +1,4 @@
-<p align="center"><img src="icons/icon128.png" alt="JSON Viewer" width="96" height="96"></p>
+<p align="center"><img src="resources/icon.svg" alt="JSON Viewer" width="96" height="96"></p>
 
 <h1 align="center">JSON Viewer</h1>
 
@@ -56,7 +56,7 @@
 
 1. Open `chrome://extensions`.
 2. Enable **Developer mode** (top right).
-3. Click **Load unpacked** and select this folder.
+3. Click **Load unpacked** and select the `src` folder.
 4. Open a JSON URL, for example `https://jsonplaceholder.typicode.com/photos`.
 
 > Requires **Chrome 129** or later (`minimum_chrome_version: 129`).
@@ -98,18 +98,20 @@ Numeric values outside the allowed range are clamped back into bounds. The **Res
 
 ```
 json-viewer/
-├── manifest.json        # at the root, as Chrome requires
-├── i18n.js              # localizes the static pages (popup, options) from _locales
-├── _locales/            # interface translations: de, en (default), es, fr, it
-├── icons/               # icon.svg (source) + PNG 16/32/48/128
-├── content/             # content script that formats the JSON (viewer.js + viewer.css)
-├── popup/               # toolbar popup (popup.html/.css/.js)
-├── options/             # options page (options.html/.css/.js)
+├── src/                     # the unpacked extension (load this folder in Chrome)
+│   ├── manifest.json        # at the extension root, as Chrome requires
+│   ├── i18n.js              # localizes the static pages (popup, options) from _locales
+│   ├── _locales/            # interface translations: de, en (default), es, fr, it
+│   ├── icons/               # PNG 16/32/48/128 used by the extension
+│   ├── content/             # content script that formats the JSON (viewer.js + viewer.css)
+│   ├── popup/               # toolbar popup (popup.html/.css/.js)
+│   └── options/             # options page (options.html/.css/.js)
+├── resources/               # source assets not shipped with the extension (icon.svg)
 ├── LICENSE
 └── README.md
 ```
 
-The layout follows Manifest V3 conventions: `manifest.json` and `_locales/` at the root (required by Chrome), one folder per interface surface (`content/`, `popup/`, `options/`), and the assets in `icons/`. **There is no service worker**: the extension has no background logic, so it does not need one.
+The extension itself lives in `src/`, which is the folder you load in Chrome; `manifest.json` and `_locales/` sit at that extension root (required by Chrome), with one folder per interface surface (`content/`, `popup/`, `options/`) and the PNG assets in `icons/`. The `resources/` folder holds source assets that are not shipped, such as `icon.svg` from which the PNG icons are generated. **There is no service worker**: the extension has no background logic, so it does not need one.
 
 ### How it gets the JSON
 
