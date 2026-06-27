@@ -12,13 +12,9 @@
 
 <div align="center">
   <!-- Manifest V3 -->
-  <a href="https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3">
-    <img src="https://img.shields.io/badge/Manifest-V3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
-  </a>
+  <img src="https://img.shields.io/badge/Manifest-V3-4285F4?style=for-the-badge&logo=chromewebstore&logoColor=white" alt="Manifest V3">
   <!-- Chrome version -->
   <img src="https://img.shields.io/badge/Chrome-129%2B-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Chrome 129+">
-  <!-- Version -->
-  <img src="https://img.shields.io/badge/version-1.0.0-success?style=for-the-badge" alt="Version 1.0.0">
   <!-- License -->
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License: MIT">
@@ -147,4 +143,4 @@ JSON Viewer does **not** collect personal data, history, or page content. The JS
 
 ## License
 
-Licensed under the [MIT](LICENSE) license.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
