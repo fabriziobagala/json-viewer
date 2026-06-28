@@ -136,9 +136,22 @@ body {
 }
 
 .pp-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   color: var(--pp-muted);
   font-size: 11.5px;
   text-decoration: none;
+}
+
+.pp-icon {
+  flex-shrink: 0;
+  color: var(--pp-muted);
+  transition: color 120ms ease;
+}
+
+.pp-author:hover .pp-icon {
+  color: var(--pp-accent);
 }
 
 .pp-author:hover {
