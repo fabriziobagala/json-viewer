@@ -269,6 +269,9 @@ body.jv-body[data-jv-wrap="off"] .jv-value--string {
   border-left: 1px solid var(--jv-border);
   padding-left: 12px;
   display: none;
+}
+
+.jv-children .jv-children {
   content-visibility: auto;
   contain-intrinsic-size: auto 320px;
 }
