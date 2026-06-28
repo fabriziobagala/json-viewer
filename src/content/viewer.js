@@ -373,6 +373,7 @@
     toggle.type = 'button';
     toggle.tabIndex = -1;
     toggle.setAttribute('aria-label', i18n('viewerToggleLabel'));
+    toggle.setAttribute('aria-hidden', 'true');
     header.appendChild(toggle);
 
     if (key !== null) {
@@ -505,15 +506,14 @@
   }
 
   /**
-   * Open or close a single tree node and update its toggle's aria-expanded.
-   * @param {HTMLElement} node - The .jv-node element.
+   * Open or close a single tree node and reflect the state on the treeitem.
+   * @param {HTMLElement} node - The .jv-node element (role="treeitem").
    * @param {boolean} open - Whether to expand it.
    * @returns {void}
    */
   function setNodeExpanded(node, open) {
     node.classList.toggle('is-open', open);
-    const toggle = node.querySelector(':scope > .jv-row > .jv-toggle');
-    if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    node.setAttribute('aria-expanded', String(open));
   }
 
   /**
