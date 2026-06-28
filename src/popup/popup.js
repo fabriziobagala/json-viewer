@@ -36,7 +36,9 @@
   });
 
   const tips = document.getElementById('pp-tips');
-  document.getElementById('pp-shortcuts').addEventListener('click', () => {
+  const shortcutsBtn = document.getElementById('pp-shortcuts');
+  shortcutsBtn.addEventListener('click', () => {
     tips.hidden = !tips.hidden;
+    shortcutsBtn.setAttribute('aria-expanded', String(!tips.hidden));
   });
 })();
