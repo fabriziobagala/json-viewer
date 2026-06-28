@@ -203,6 +203,8 @@
     const tabRaw = el('button', 'jv-tab', i18n('viewerTabRaw'));
     tabFormatted.type = 'button';
     tabRaw.type = 'button';
+    tabFormatted.id = 'jv-tab-formatted';
+    tabRaw.id = 'jv-tab-raw';
     tabFormatted.setAttribute('role', 'tab');
     tabRaw.setAttribute('role', 'tab');
     tabFormatted.setAttribute('aria-controls', 'jv-panel-formatted');
@@ -230,14 +232,26 @@
     shell.appendChild(toolbar);
 
     const main = el('main', 'jv-main');
+
+    const formattedPanel = el('div', 'jv-panel');
+    formattedPanel.id = 'jv-panel-formatted';
+    formattedPanel.setAttribute('role', 'tabpanel');
+    formattedPanel.setAttribute('aria-labelledby', 'jv-tab-formatted');
     const tree = el('div', 'jv-tree');
-    tree.id = 'jv-panel-formatted';
     tree.setAttribute('role', 'tree');
+    formattedPanel.appendChild(tree);
+
+    const rawPanel = el('div', 'jv-panel');
+    rawPanel.id = 'jv-panel-raw';
+    rawPanel.setAttribute('role', 'tabpanel');
+    rawPanel.setAttribute('aria-labelledby', 'jv-tab-raw');
+    rawPanel.tabIndex = 0;
     const rawPane = el('pre', 'jv-raw');
-    rawPane.id = 'jv-panel-raw';
     rawPane.textContent = reindentRaw(value, raw, prefs.rawIndent);
-    main.appendChild(tree);
-    main.appendChild(rawPane);
+    rawPanel.appendChild(rawPane);
+
+    main.appendChild(formattedPanel);
+    main.appendChild(rawPanel);
     shell.appendChild(main);
 
     root.appendChild(shell);
