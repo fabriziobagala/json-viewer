@@ -547,9 +547,6 @@
     const isOpen = (n) => n.classList.contains('is-open');
     const isHidden = (n) => n.classList.contains('is-hidden');
 
-    // Navigation works by local DOM traversal (O(depth) per keystroke) instead of
-    // rebuilding a flat list of every visible node. It never reads layout
-    // (`offsetParent`), so a single keypress stays cheap even on huge trees.
     const childGroup = (node) => {
       for (const c of node.children) {
         if (c.classList.contains('jv-children')) return c;

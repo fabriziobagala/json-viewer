@@ -100,8 +100,6 @@ h1 {
   transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
 }
 
-/* Native radio tinted with accent-color instead of a reimplemented dot; the
-   pill keeps its own selected styling via :has() below. */
 .op-radio input {
   accent-color: var(--op-accent);
   margin: 0;

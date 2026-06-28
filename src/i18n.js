@@ -37,8 +37,6 @@
   localize('[data-i18n-label]', 'i18nLabel', (n, t) => { n.setAttribute('aria-label', t); });
   localize('[data-i18n-title]', 'i18nTitle', (n, t) => { n.title = t; });
 
-  // Reflect the resolved UI language on <html> so :lang() rules and screen
-  // readers match the displayed copy.
   try {
     const lang = chrome.i18n.getUILanguage?.();
     if (lang) document.documentElement.lang = lang.split('-')[0];

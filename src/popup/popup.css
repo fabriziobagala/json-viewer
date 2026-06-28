@@ -91,7 +91,6 @@ body {
   transform: translateY(1px);
 }
 
-/* Stesso colore dell'opzione "Automatico" selezionata nella pagina opzioni. */
 .pp-btn--primary {
   border-color: var(--pp-accent);
   background: var(--pp-accent-weak);

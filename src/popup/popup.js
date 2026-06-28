@@ -10,10 +10,6 @@
     versionEl.textContent = '?';
   }
 
-  // Build the lead sentence from a single localized message, inserting a styled
-  // `application/json` chip where its placeholder sits. A sentinel substitution
-  // marks the slot so translations can reorder the words around it. If the
-  // message is missing, the authored HTML fallback is kept untouched.
   const lead = document.querySelector('.pp-lead');
   if (lead) {
     const SENTINEL = '\uE000';
