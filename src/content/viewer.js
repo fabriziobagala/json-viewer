@@ -643,6 +643,81 @@
   }
 
   /**
+   * Yield to the main thread, then report whether a newer run has superseded
+   * this one so the caller can bail out.
+   * @param {() => boolean} stale - Returns true when this run is outdated.
+   * @returns {Promise<boolean>} True if the caller should stop.
+   */
+  const breath = async (stale) => {
+    await yieldToMain();
+    return stale();
+  };
+
+  /**
+   * First filter pass: tag each node with whether its own row matches the query,
+   * yielding periodically so a large tree does not freeze the tab.
+   * @param {NodeListOf<HTMLElement>} nodes - All tree nodes.
+   * @param {string} q - The lowercased query.
+   * @param {() => boolean} stale - Returns true when this run is outdated.
+   * @returns {Promise<?{map: WeakMap<HTMLElement, boolean>, count: number}>} The
+   *   per-node match map and total match count, or null if superseded.
+   */
+  async function markMatches(nodes, q, stale) {
+    const map = new WeakMap();
+    let count = 0;
+    let deadline = performance.now() + 50;
+    for (const n of nodes) {
+      const row = n.querySelector(':scope > .jv-row');
+      const hit = !!row && row.textContent.toLowerCase().includes(q);
+      map.set(n, hit);
+      n.classList.toggle('is-match', hit);
+      if (hit) count += 1;
+      if (performance.now() >= deadline) {
+        if (await breath(stale)) return null;
+        deadline = performance.now() + 50;
+      }
+    }
+    return { map, count };
+  }
+
+  /**
+   * Record that a node's parent has a matching descendant.
+   * @param {HTMLElement} node - The in-subtree node.
+   * @param {WeakMap<HTMLElement, boolean>} childMatch - Parent → has-match map.
+   * @returns {void}
+   */
+  const linkParent = (node, childMatch) => {
+    const parent = node.parentElement?.closest('.jv-node');
+    if (parent) childMatch.set(parent, true);
+  };
+
+  /**
+   * Second filter pass (leaves → root): hide nodes outside any matching subtree
+   * and expand ancestors of matches, yielding periodically.
+   * @param {NodeListOf<HTMLElement>} nodes - All tree nodes, in document order.
+   * @param {WeakMap<HTMLElement, boolean>} selfMatch - Per-node self-match map.
+   * @param {() => boolean} stale - Returns true when this run is outdated.
+   * @returns {Promise<boolean>} True if a newer run superseded this one.
+   */
+  async function hideUnmatched(nodes, selfMatch, stale) {
+    const childMatch = new WeakMap();
+    let deadline = performance.now() + 50;
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      const n = nodes[i];
+      const hasDescendantMatch = childMatch.get(n) === true;
+      const inSubtree = selfMatch.get(n) || hasDescendantMatch;
+      n.classList.toggle('is-hidden', !inSubtree);
+      if (hasDescendantMatch) setNodeExpanded(n, true);
+      if (inSubtree) linkParent(n, childMatch);
+      if (performance.now() >= deadline) {
+        if (await breath(stale)) return true;
+        deadline = performance.now() + 50;
+      }
+    }
+    return false;
+  }
+
+  /**
    * Filter the tree to nodes matching a query, expanding ancestors of matches and
    * updating the result count.
    * @param {HTMLElement} tree - The tree container.
@@ -656,47 +731,16 @@
     const q = rawQuery.trim().toLowerCase();
     const nodes = tree.querySelectorAll('.jv-node');
     if (!q) {
-      nodes.forEach((n) => {
-        n.classList.remove('is-hidden', 'is-match');
-      });
+      nodes.forEach((n) => n.classList.remove('is-hidden', 'is-match'));
       status.textContent = '';
       return;
     }
 
-    let matches = 0;
-    let deadline = performance.now() + 50;
-    const selfMatch = new WeakMap();
-    for (const n of nodes) {
-      const row = n.querySelector(':scope > .jv-row');
-      const hit = !!row && row.textContent.toLowerCase().includes(q);
-      selfMatch.set(n, hit);
-      n.classList.toggle('is-match', hit);
-      if (hit) matches += 1;
-      if (performance.now() >= deadline) {
-        await yieldToMain();
-        if (gen !== filterGen) return; // a newer query superseded this run
-        deadline = performance.now() + 50;
-      }
-    }
-
-    const childMatch = new WeakMap();
-    for (let i = nodes.length - 1; i >= 0; i--) {
-      const n = nodes[i];
-      const hasDescendantMatch = childMatch.get(n) === true;
-      const inSubtree = selfMatch.get(n) || hasDescendantMatch;
-      n.classList.toggle('is-hidden', !inSubtree);
-      if (hasDescendantMatch) setNodeExpanded(n, true);
-      if (inSubtree) {
-        const parent = n.parentElement?.closest('.jv-node');
-        if (parent) childMatch.set(parent, true);
-      }
-      if (performance.now() >= deadline) {
-        await yieldToMain();
-        if (gen !== filterGen) return; // a newer query superseded this run
-        deadline = performance.now() + 50;
-      }
-    }
-    status.textContent = i18n(matches === 1 ? 'viewerResultsOne' : 'viewerResultsMany', [String(matches)]);
+    const stale = () => gen !== filterGen;
+    const marked = await markMatches(nodes, q, stale);
+    if (!marked) return;
+    if (await hideUnmatched(nodes, marked.map, stale)) return;
+    status.textContent = i18n(marked.count === 1 ? 'viewerResultsOne' : 'viewerResultsMany', [String(marked.count)]);
   }
 
   /**
