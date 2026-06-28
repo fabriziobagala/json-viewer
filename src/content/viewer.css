@@ -36,7 +36,7 @@ body.jv-body {
   --jv-summary: light-dark(#80868b, #9aa0a6);
 
   font-family: var(--jv-font);
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--jv-text);
   background: var(--jv-bg);
   line-height: 1.5;
@@ -89,7 +89,7 @@ html[data-jv-theme="dark"] {
 .jv-title__text {
   font-weight: 500;
   color: var(--jv-text);
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .jv-tabs {
@@ -201,19 +201,19 @@ html[data-jv-theme="dark"] {
   background: var(--jv-surface-2);
   color: var(--jv-accent);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1;
 }
 
 .jv-btn__label {
   color: var(--jv-text-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .jv-status {
   margin-left: auto;
   color: var(--jv-text-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
   min-height: 1em;
 }
 
@@ -233,13 +233,13 @@ html[data-jv-theme="dark"] {
 
 .jv-tree {
   font-family: var(--jv-mono);
-  font-size: var(--jv-font-size, 13.5px);
+  font-size: var(--jv-font-size, 0.84375rem);
   line-height: 1.7;
 }
 
 .jv-raw {
   font-family: var(--jv-mono);
-  font-size: var(--jv-font-size, 13.5px);
+  font-size: var(--jv-font-size, 0.84375rem);
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
@@ -384,7 +384,7 @@ body.jv-body[data-jv-wrap="off"] .jv-value--string {
 .jv-summary {
   color: var(--jv-summary);
   font-style: italic;
-  font-size: 12.5px;
+  font-size: 0.78125rem;
   margin: 0 6px;
 }
 
