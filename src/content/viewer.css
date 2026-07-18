@@ -254,14 +254,14 @@ html[data-jv-theme="dark"] {
   font-size: var(--jv-font-size, 0.84375rem);
   line-height: 1.6;
   white-space: pre-wrap;
-  word-break: break-word;
+  overflow-wrap: anywhere;
   margin: 0;
   color: var(--jv-text);
 }
 
 body.jv-body[data-jv-wrap="off"] .jv-raw {
   white-space: pre;
-  word-break: normal;
+  overflow-wrap: normal;
 }
 
 body.jv-body[data-jv-wrap="off"] .jv-row {
@@ -269,7 +269,7 @@ body.jv-body[data-jv-wrap="off"] .jv-row {
 }
 
 body.jv-body[data-jv-wrap="off"] .jv-value--string {
-  word-break: normal;
+  overflow-wrap: normal;
   white-space: pre;
 }
 
@@ -414,7 +414,7 @@ body.jv-body[data-jv-wrap="off"] .jv-value--string {
   display: block;
 }
 
-.jv-value--string { color: var(--jv-string); word-break: break-word; }
+.jv-value--string { color: var(--jv-string); overflow-wrap: anywhere; }
 .jv-value--number { color: var(--jv-number); }
 .jv-value--boolean { color: var(--jv-boolean); }
 .jv-value--null { color: var(--jv-null); font-style: italic; }
