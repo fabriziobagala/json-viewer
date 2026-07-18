@@ -25,6 +25,8 @@ body.jv-body {
   --jv-hover: light-dark(rgba(60, 64, 67, 0.08), rgba(232, 234, 237, 0.08));
   --jv-selected: light-dark(rgba(26, 115, 232, 0.12), rgba(138, 180, 248, 0.18));
   --jv-match: light-dark(rgba(251, 188, 4, 0.35), rgba(251, 188, 4, 0.3));
+  /* The light value mirrors the icon tile in resources/icon.svg. */
+  --jv-logo-bg: light-dark(#f1f3f4, #303134);
 
   --jv-key: light-dark(#1967d2, #8ab4f8);
   --jv-index: light-dark(#9aa0a6, #9aa0a6);
@@ -80,10 +82,20 @@ html[data-jv-theme="dark"] {
 }
 
 .jv-logo {
-  display: block;
-  width: 28px;
-  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
   flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--jv-logo-bg);
+  color: var(--jv-accent);
+  font-weight: 700;
+}
+
+.jv-logo::before {
+  content: "{ }";
 }
 
 .jv-title__text {

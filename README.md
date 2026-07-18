@@ -127,6 +127,7 @@ The extension is designed to be auditable and to minimize the attack surface.
 - **Manifest V3** with `minimum_chrome_version: 129`.
 - **A single permission**: `storage`, to save the preferences. `host_permissions` is empty.
 - **No external requests** to CDNs, fonts, analytics, or trackers: everything is served from the local package.
+- **No web-accessible resources**: nothing in the package is exposed for web pages to load.
 - **Restrictive CSP** for the extension pages:
   ```
   default-src 'self'; script-src 'self'; style-src 'self';

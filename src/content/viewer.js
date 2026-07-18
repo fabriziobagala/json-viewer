@@ -190,9 +190,7 @@
 
     const header = el('header', 'jv-header');
     const title = el('div', 'jv-title');
-    const logo = el('img', 'jv-logo');
-    logo.src = chrome.runtime.getURL('icons/icon128.png');
-    logo.alt = '';
+    const logo = el('span', 'jv-logo');
     logo.setAttribute('aria-hidden', 'true');
     title.appendChild(logo);
     title.appendChild(el('span', 'jv-title__text', 'JSON Viewer'));
