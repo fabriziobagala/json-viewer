@@ -145,17 +145,30 @@
   }
 
   /**
-   * Persist the current form state to chrome.storage.sync and report the outcome.
+   * Write a preferences object to chrome.storage.sync and report the outcome,
+   * cancelling any pending flash so it cannot clear the error message.
+   * @param {Prefs} prefs - Preferences to write.
+   * @param {string} successKey - Message key flashed when the write succeeds.
+   * @returns {Promise<boolean>} True when the write succeeded.
+   */
+  async function persist(prefs, successKey) {
+    try {
+      await chrome.storage.sync.set(prefs);
+      flashStatus(i18n(successKey));
+      return true;
+    } catch (err) {
+      clearTimeout(flashStatus._t);
+      status.textContent = i18n('optionsStatusError', [err.message]);
+      return false;
+    }
+  }
+
+  /**
+   * Persist the current form state to chrome.storage.sync.
    * @returns {Promise<void>}
    */
   async function save() {
-    const prefs = collect();
-    try {
-      await chrome.storage.sync.set(prefs);
-      flashStatus(i18n('optionsStatusSaved'));
-    } catch (err) {
-      status.textContent = i18n('optionsStatusError', [err.message]);
-    }
+    await persist(collect(), 'optionsStatusSaved');
   }
 
   themeInputs.forEach((i) => i.addEventListener('change', scheduleSave));
@@ -174,9 +187,8 @@
   });
 
   resetBtn.addEventListener('click', async () => {
-    apply(DEFAULTS);
-    await chrome.storage.sync.set(DEFAULTS);
-    flashStatus(i18n('optionsStatusReset'));
+    clearTimeout(saveTimer);
+    if (await persist(DEFAULTS, 'optionsStatusReset')) apply(DEFAULTS);
   });
 
   (async () => { apply(await load()); })();
