@@ -70,6 +70,7 @@
 | Search across keys and values | `Ctrl`/`⌘` + `Shift` + `F` |
 | Navigate the tree | `↑` `↓` `←` `→` · `Home` · `End` |
 | Expand / collapse a node | `Enter` / `Space` or click the node |
+| Move between the Formatted / Raw tabs | `←` `→` `↑` `↓` · `Home` · `End` (with a tab focused) |
 
 Search is active in the formatted view; in the raw view the shortcut does not interfere with the browser's native find.
 
