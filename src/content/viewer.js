@@ -136,7 +136,8 @@
     await whenBodyReady();
     document.body.textContent = '';
     document.body.classList.add('jv-body');
-    document.documentElement.dataset.jvTheme = prefs.theme;
+    document.documentElement.dataset.jvTheme =
+      ['light', 'dark'].includes(prefs.theme) ? prefs.theme : 'auto';
     const size = Math.max(10, Math.min(24, Number(prefs.fontSize) || DEFAULTS.fontSize));
     document.body.style.setProperty('--jv-font-size', size / 16 + 'rem');
     document.body.dataset.jvWrap = prefs.wrapText ? 'on' : 'off';
